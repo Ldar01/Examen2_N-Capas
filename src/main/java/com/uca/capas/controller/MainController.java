@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uca.capas.dao.LibroDAO;
 import com.uca.capas.domain.Categoria;
 import com.uca.capas.domain.Libro;
 import com.uca.capas.service.CategoriaService;
@@ -87,7 +88,7 @@ public class MainController {
 	public ModelAndView guardar(@Valid @ModelAttribute Libro libro, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
-			mav.setViewName("index");
+			mav.setViewName("agregarLibros");
 		}
 		else {
 			libroService.save(libro);
@@ -100,7 +101,7 @@ public class MainController {
 	public ModelAndView guardar(@Valid @ModelAttribute Categoria categoria, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
-			mav.setViewName("index");
+			mav.setViewName("agregarCategorias");
 		}
 		else {
 			categoriaService.save(categoria);

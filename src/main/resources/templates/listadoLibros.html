@@ -14,13 +14,13 @@
 			<th>Fecha Ingreso</th>
 		</thead>
 		<tbody>
-			<th:block th:each="categoria, row:${categorias}">
-				<tr th:each="libro : ${categoria.libros}">
+			<th:block th:each="libro, row:${libros}">
+				<tr th:each="libro : ${libro}">
 					<td th:text="${libro.titulo}"></td>
 					<td th:text="${libro.autor}"></td>
 					<td th:text="${libro.isbn}"></td>
-					<td th:text="${categoria.categoria}"></td>
-					<td th:text="${libro.fechaIngreso}"></td>
+					<td th:text="${libro.categoria.categoria}"></td>
+					<td th:text="${#temporals.format(libro.fechaIngreso, 'dd/MM/yyyy hh:mm a')}"></td>
 				</tr>
 			</th:block> 
 		</tbody>

@@ -22,7 +22,7 @@
 		<br>
 		
 		<label>Seleccione:</label> 
-		<select th:field="*{categoria.categoria}">
+		<select th:field="*{categoria.codigoCategoria}">
 			<option th:each="option : ${categorias}"
 					th:value="${option.codigoCategoria}"
 					th:text="${option.categoria}"></option>
