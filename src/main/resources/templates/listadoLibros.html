@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado de Libros</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th>Titulo</th>
+			<th>Autor</th>
+			<th>ISBN</th>
+			<th>Categorias</th>
+			<th>Fecha Ingreso</th>
+		</thead>
+		<tbody>
+			<th:block th:each="categoria, row:${categorias}">
+				<tr th:each="libro : ${categoria.libros}">
+					<td th:text="${libro.titulo}"></td>
+					<td th:text="${libro.autor}"></td>
+					<td th:text="${libro.isbn}"></td>
+					<td th:text="${categoria.categoria}"></td>
+					<td th:text="${libro.fechaIngreso}"></td>
+				</tr>
+			</th:block> 
+		</tbody>
+	</table>
+	<br>
+	<form th:action="@{/index}">
+		<input type="submit" value="Regresar">
+	</form>
+</body>
+</html>
